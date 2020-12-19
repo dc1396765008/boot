@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dc.boot.dao.SuNingDao">
+
+
+
+    <insert id="add"   parameterType="com.dc.boot.vo.VosuningListitems">
+            insert into magic.suningyigou(id,productName,price,evaluationNumber,shopName,commodityLink,imageLink) VALUES (#{id},#{productName},#{price},#{evaluationNumber},#{shopName},#{commodityLink},#{imageLink})
+    </insert>
+
+    <delete id="delete" >
+        delete from magic.suningyigou
+    </delete>
+
+    <select id="findPage" parameterType="int" resultType="com.dc.boot.vo.VosuningListitems">
+             select * from magic.suningyigou limit #{0},#{1}
+    </select>
+
+    <select id="findCount" resultType="java.lang.Integer">
+        select count(*) from magic.suningyigou
+    </select>
+</mapper>

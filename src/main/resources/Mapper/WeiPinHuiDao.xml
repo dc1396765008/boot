@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dc.boot.dao.WeiPinHuiDao">
+
+
+
+    <insert id="add"   parameterType="com.dc.boot.vo.VoWeiPingHuiItems">
+            insert into magic.weipinhui(id,name,url,currentPrice,costOfProduction,discount,postRollPrice,imgUrl) VALUES (#{id},#{name},#{url},#{currentPrice},#{costOfProduction},#{discount},#{postRollPrice},#{imgUrl})
+    </insert>
+
+    <delete id="delete" >
+        delete from magic.weipinhui
+    </delete>
+
+    <select id="findPage" parameterType="int" resultType="com.dc.boot.vo.VoWeiPingHuiItems">
+             select * from magic.weipinhui limit #{0},#{1}
+    </select>
+
+    <select id="findCount" resultType="java.lang.Integer">
+        select count(*) from magic.weipinhui
+    </select>
+</mapper>

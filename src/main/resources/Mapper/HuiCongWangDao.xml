@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dc.boot.dao.HuiCongWangDao">
+
+
+
+    <insert id="add"   parameterType="com.dc.boot.vo.VoHuiCongItems">
+            insert into magic.huicongwang(id,name,shopName,url,imgUrl,price,address) VALUES (#{id},#{name},#{shopName},#{url},#{imgUrl},#{price},#{address})
+    </insert>
+
+    <delete id="delete" >
+        delete from magic.huicongwang
+    </delete>
+
+    <select id="findPage" parameterType="int" resultType="com.dc.boot.vo.VoHuiCongItems">
+             select * from magic.huicongwang limit #{0},#{1}
+    </select>
+
+    <select id="findCount" resultType="java.lang.Integer">
+        select count(*) from magic.huicongwang
+    </select>
+</mapper>

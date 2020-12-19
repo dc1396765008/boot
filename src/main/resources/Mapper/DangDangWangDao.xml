@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dc.boot.dao.DangDangWangDao">
+
+
+
+    <insert id="add"   parameterType="com.dc.boot.vo.VoDangDangItems">
+            insert into magic.dangdangwang(id,shopName,imageLink,commodityLink,productName,price,evaluationTheNumber) VALUES (#{id},#{shopName},#{imageLink},#{commodityLink},#{productName},#{price},#{evaluationTheNumber})
+    </insert>
+
+    <delete id="delete" >
+        delete from magic.dangdangwang
+    </delete>
+
+    <select id="findPage" parameterType="int" resultType="com.dc.boot.vo.VoDangDangItems">
+             select * from magic.dangdangwang limit #{0},#{1}
+    </select>
+
+    <select id="findCount" resultType="java.lang.Integer">
+        select count(*) from magic.dangdangwang
+    </select>
+</mapper>

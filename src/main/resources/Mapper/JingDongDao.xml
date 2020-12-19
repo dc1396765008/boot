@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dc.boot.dao.JingDongDao">
+
+
+
+    <insert id="add"   parameterType="com.dc.boot.vo.VojdListItems">
+            insert into magic.jingdong(id,searchKeywords,tradeName,productLink,coverPictureLink,price,evaluationOfTheNumber,theCommentsLink,businessName,theStoreLink,label,thePageNumber,theCurrentTime) VALUES (#{id},#{searchKeywords},#{tradeName},#{productLink},#{coverPictureLink},#{price},#{evaluationOfTheNumber},#{theCommentsLink},#{businessName},#{theStoreLink},#{label},#{thePageNumber},#{theCurrentTime})
+    </insert>
+
+    <delete id="delete" >
+        delete from magic.jingdong
+    </delete>
+
+    <select id="findPage" parameterType="int" resultType="com.dc.boot.vo.VojdListItems">
+             select * from magic.jingdong limit #{0},#{1}
+    </select>
+
+    <select id="findCount" resultType="java.lang.Integer">
+        select count(*) from magic.jingdong
+    </select>
+</mapper>

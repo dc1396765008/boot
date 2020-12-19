@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dc.boot.dao.TianMaoDao">
+
+
+
+    <insert id="add"   parameterType="com.dc.boot.vo.VoTianmaoList">
+            insert into magic.tianmao(id,shopName,productName,productPrice,productSales,commodityLink,productEvaluation) VALUES (#{id},#{shopName},#{productName},#{productPrice},#{productSales},#{commodityLink},#{productEvaluation})
+    </insert>
+
+    <delete id="delete" >
+        delete from magic.tianmao
+    </delete>
+
+    <select id="findPage" parameterType="int" resultType="com.dc.boot.vo.VoTianmaoList">
+             select * from magic.tianmao limit #{0},#{1}
+    </select>
+
+    <select id="findCount" resultType="java.lang.Integer">
+        select count(*) from magic.tianmao
+    </select>
+</mapper>
